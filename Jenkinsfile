@@ -32,6 +32,7 @@ pipeline {
         
         stage('Terraform plan') {
             steps {
+                set AWS_PROFILE=default
                 bat 'terraform plan'
             }
         }
