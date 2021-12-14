@@ -1,5 +1,9 @@
 pipeline {
     agent any
+        options {
+            timestamps ()
+            ansicolor('xterm')
+        }
     
     tools {
         terraform 'Terraform-Win'
@@ -32,7 +36,7 @@ pipeline {
         
         stage('Terraform plan') {
             steps {
-                set AWS_PROFILE=default
+                bat 'set AWS_PROFILE=default'
                 bat 'terraform plan'
             }
         }
