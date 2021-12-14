@@ -49,7 +49,7 @@ pipeline {
         stage('Terraform Action') {
             steps {
                 bat 'echo %action%'
-                bat 'terraform ${action} --auto-approve'
+                bat 'terraform %action% --auto-approve'
             }
         }        
         
