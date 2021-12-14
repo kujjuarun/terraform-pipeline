@@ -41,13 +41,14 @@ pipeline {
         stage('Terraform plan') {
             steps {
                 bat 'set AWS_PROFILE=default'
-                bat 'terraform plan'
+                bat 'terraform plan -input=false -out tfplan'
+                bat 'terraform show -no-color tfplan > tfplan.txt'
             }
         }
         
         stage('Terraform Action') {
             steps {
-                bat 'terraform $action --auto-approve'
+                bat 'terraform ${action} --auto-approve'
             }
         }        
         
