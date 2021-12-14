@@ -12,5 +12,5 @@ terraform {
 provider "aws" {
   profile = "default"
   region  = "us-east-1"
-  shared_credentials_file = "C:\Users\Minion1\.aws\credentials"
+  shared_credential_file = "C:\Users\Minion1\.aws\credentials"
 }
