@@ -9,9 +9,9 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
 
-    tools {
-        terraform 'Terraform-Win'
-    }
+ //   tools {
+ //       terraform 'Terraform-Win'
+ //  }
     
     stages {
         stage('Code Extraction') {
