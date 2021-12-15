@@ -30,22 +30,21 @@ pipeline {
         
         stage('Terraform validate') {
             steps {
-                bat 'terraform validate'
+                sh 'terraform validate'
             }
         }
         
         stage('Terraform plan') {
             steps {
-                bat 'set AWS_PROFILE=default'
-                bat 'terraform plan -input=false -out tfplan'
-                bat 'terraform show -no-color tfplan > tfplan.txt'
+                sh 'terraform plan -input=false -out tfplan'
+                sh 'terraform show -no-color tfplan > tfplan.txt'
             }
         }
         
         stage('Terraform Action') {
             steps {
-                bat 'echo %action%'
-                bat 'terraform %action% --auto-approve'
+                sh 'echo $action'
+                sh 'terraform $action --auto-approve'
             }
         }        
         
