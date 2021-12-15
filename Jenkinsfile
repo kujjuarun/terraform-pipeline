@@ -17,7 +17,7 @@ pipeline {
         stage('Code Extraction') {
             steps {
             //    git branch: 'main', credentialsId: 'cff6456e-2e71-4647-b3fe-846013c20e46', url: 'https://github.com/kujjuarun/terraform-pipeline.git'
-                git branch: 'main', url: 'https://github.com/kujjuarun/terraform-pipeline.git'
+                  git branch: 'main', credentialsId: '828fe8f8-def2-442d-94c4-606c81420388', url: 'https://github.com/kujjuarun/terraform-pipeline.git'
             }
         }
         
