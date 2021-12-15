@@ -9,26 +9,22 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
 
-    tools {
-        terraform 'Terraform-Win'
-   }
-    
     stages {
         stage('Code Extraction') {
             steps {
-                git branch: 'main', credentialsId: 'cff6456e-2e71-4647-b3fe-846013c20e46', url: 'https://github.com/kujjuarun/terraform-pipeline.git'
+                git branch: 'main', credentialsId: '828fe8f8-def2-442d-94c4-606c81420388', url: 'https://github.com/kujjuarun/terraform-pipeline.git'
             }
         }
         
         stage('Terraform Version') {
             steps {
-                bat 'terraform --version'
+                sh 'terraform --version'
             }
         }
         
         stage('Terraform Init') {
             steps {
-                bat 'terraform init -upgrade'
+                sh 'terraform init -upgrade'
             }
         }
         
